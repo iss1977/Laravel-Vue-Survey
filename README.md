@@ -19,4 +19,5 @@ Stack used for development:
 
 - create Laravel 8 backend application
 - add vue frontend to the application : ```npm init vite vue```
+- add vuex to vue ```npm install -S vuex@next``` , test functionality in App component
 
