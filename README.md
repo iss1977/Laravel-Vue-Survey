@@ -24,4 +24,5 @@ Stack used for development:
 - install ```npm install @headlessui/vue @heroicons/vue @tailwindcss/forms -S```
 - add sign in form from _https://tailwindui.com/_
 - add vue router to frontend. ```npm i -S vue-router@next```, define router and import in main App
+- creating Dashboard, Login and Register components from Tailwind Application UI
 
