@@ -18,3 +18,5 @@ Stack used for development:
 ### Development steps:
 
 - create Laravel 8 backend application
+- add vue frontend to the application : ```npm init vite vue```
+
