@@ -22,4 +22,6 @@ Stack used for development:
 - add vuex to vue ```npm install -S vuex@next``` , test functionality in App component
 - install tailwind CSS / tailwind docs in vue frontend
 - install ```npm install @headlessui/vue @heroicons/vue @tailwindcss/forms -S```
+- add sign in form from _https://tailwindui.com/_
+- add vue router to frontend. ```npm i -S vue-router@next```, define router and import in main App
 

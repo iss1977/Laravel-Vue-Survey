@@ -16,9 +16,7 @@ export default {
 </script>
 
 <template>
-<pre>{{ user }}</pre>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <HelloWorld/>
 </template>
 
 <style>
