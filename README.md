@@ -25,4 +25,5 @@ Stack used for development:
 - add sign in form from _https://tailwindui.com/_
 - add vue router to frontend. ```npm i -S vue-router@next```, define router and import in main App
 - creating Dashboard, Login and Register components from Tailwind Application UI
+- defining DefaultLayout to share dashboard menu. Creating child routes.
 
