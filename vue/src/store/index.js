@@ -4,7 +4,7 @@ const store = createStore({ //options
   state: {
     user: {
       data: { name: 'Sebastian' },
-      token: null
+      token: 123
     }
   },
 
