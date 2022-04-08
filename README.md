@@ -29,5 +29,8 @@ Stack used for development:
 - implementing route guards
 - implementing Guest Layout and redirects for registred and guest users
 - creating a shared "PageComponent" for Dashboard and Surveys
+- Creating Models and migrations for the surveys
+- Creating controller for registration
+- Implementing login in VUEX Store
 
 
