@@ -35,6 +35,6 @@ Stack used for development:
 - Implementing login in VUEX Store
 - Same as before for Login on Backend and Frontend
 - Adding axios, create Client (_axios.js_) to frontend and configuration.
-
+- Adding error message on failed login - Login.vue component / using ref
 
 
