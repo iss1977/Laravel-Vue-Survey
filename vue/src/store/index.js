@@ -28,6 +28,17 @@ const store = createStore({ //options
           commit('setUser', data);
           return data;
         } )
+    },
+
+    /** Logout user */
+    logout( { commit } ){
+      return axiosClient
+              .post('/loggout')
+              .then( ()=> {
+                  commit('logout')
+                  return response
+              })
+
     }
   },
   mutations: {
