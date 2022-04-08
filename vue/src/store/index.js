@@ -1,4 +1,5 @@
 import {createStore} from 'vuex';
+import axiosClient from '../axios';
 
 const store = createStore({ //options
   state: {
@@ -10,20 +11,23 @@ const store = createStore({ //options
 
   getters: {},
   actions: {
+
+    /** Registration for Register.vue component */
     register( { commit }, user ){
-      return fetch(`http://localhost:8000/api/register`,{
-        headers : {
-          "Content-Type": "application/json",
-          Accept : "application/json",
-        },
-        method: "POST",
-        body: JSON.stringify(user),
-      })
-        .then((res) => res.json(res))
-        .then((res) => {
-          commit("setUser", res);
-          return res; // responseFromStoreRegister will be sent to Register.vue
-        })
+      return axiosClient.post('/register', user)
+        .then( ({data})=>{
+          commit('setUser', data);
+          return data;
+        } )
+    },
+
+    /** Login for Login.vue component */
+    login( { commit }, user ){
+      return axiosClient.post('/login', user)
+        .then( ({data})=>{
+          commit('setUser', data);
+          return data;
+        } )
     }
   },
   mutations: {

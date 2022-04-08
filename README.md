@@ -31,6 +31,10 @@ Stack used for development:
 - creating a shared "PageComponent" for Dashboard and Surveys
 - Creating Models and migrations for the surveys
 - Creating controller for registration
+- Implementing register in Vuex Store
 - Implementing login in VUEX Store
+- Same as before for Login on Backend and Frontend
+- Adding axios, create Client (_axios.js_) to frontend and configuration.
+
 
 
