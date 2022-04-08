@@ -28,4 +28,6 @@ Stack used for development:
 - defining DefaultLayout to share dashboard menu. Creating child routes.
 - implementing route guards
 - implementing Guest Layout and redirects for registred and guest users
+- creating a shared "PageComponent" for Dashboard and Surveys
+
 
