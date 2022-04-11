@@ -33,10 +33,15 @@ const store = createStore({ //options
     /** Logout user */
     logout( { commit } ){
       return axiosClient
-              .post('/loggout')
-              .then( ()=> {
+              .post('/logout')
+              .then( (response)=> {
                   commit('logout')
                   return response
+              })
+              .catch((er)=> {
+                console.log('Logout on backend failed. Already logged out?');
+                commit('logout')
+                return er
               })
 
     }
