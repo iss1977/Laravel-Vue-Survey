@@ -37,6 +37,10 @@ Stack used for development:
 - Adding axios, create Client (_axios.js_) to frontend and configuration.
 - Adding error message on failed login - Login.vue component / using ref
 - Logout in backend and Frontend
+- Creating sample data in Vuex Store
+- Updating PageComponent to display additional "add Sourvey" button. Using ```<slot></slot>```
+- Creating survey cards with tailwind.css
+
 
 
 
