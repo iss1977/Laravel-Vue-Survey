@@ -40,7 +40,7 @@ Stack used for development:
 - Creating sample data in Vuex Store
 - Updating PageComponent to display additional "add Sourvey" button. Using ```<slot></slot>```
 - Creating survey cards with tailwind.css
-
+- Creating form for creeate/edit Surveys
 
 
 
