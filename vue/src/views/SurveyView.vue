@@ -90,6 +90,34 @@
           </div>
           <!-- /Status -->
 
+
+          <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+            <h3 class="text-2xl font-semibold flex items-center justify-between">
+              Questions
+              <button type="button" @click="addQuestion()" class="ml-5 py-1 px-3 border border-gray-300 rounded-sm shadow-sm text-sm leading-4 font-medium text-gray-700 bg-gray-100 hover:bg-gray-500 hover:text-white  cursor-pointer flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                </svg>
+                Add question
+              </button>
+            </h3>
+            <div v-if="!model.questions.length" class="text-center text-gray-600">
+              You don't have any questions
+            </div>
+            <!-- Iterate questions -->
+            <div v-for="(question, index) in model.questions" :key="question.id">
+              <QuestionEditor
+                :question = "question"
+                :index = "index"
+                @change = "questionChange"
+                @addQuestion = "addQuestion"
+                @deleteQuestion = "deleteQuestion"
+              />
+            </div>
+            <!-- /Iterate questions -->
+
+          </div>
+
           <!-- Form Footer -->
           <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
             <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -97,6 +125,8 @@
             </button>
           </div>
           <!-- /Form Footer -->
+
+
         </div>
       </div>
     </form>
