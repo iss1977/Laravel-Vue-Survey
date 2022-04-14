@@ -41,6 +41,7 @@ Stack used for development:
 - Updating PageComponent to display additional "add Sourvey" button. Using ```<slot></slot>```
 - Creating survey cards with tailwind.css
 - Creating form for creeate/edit Surveys
+- Creating a "question editor" component. Add Question inputs, Question Type Select, Options for question
 
 
 

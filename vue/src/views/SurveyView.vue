@@ -136,9 +136,10 @@
 
 <script setup>
   import PageComponent from './../components/PageComponent.vue';
-  import {ref} from 'vue';
-  import store from './../store';
+  import QuestionEditor from '../components/editor/QuestionEditor.vue';
+  import { ref } from 'vue';
   import { useRoute } from 'vue-router';
+  import store from './../store';
 
   const route = useRoute();
 
