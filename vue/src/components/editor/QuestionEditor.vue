@@ -178,6 +178,16 @@ function dataChange(){
   emit("change", data);
 }
 
+// add a complete new question
+function addQuestion(){
+  emit("addQuestion", props.index + 1)
+}
+
+// delete entire question
+function deleteQuestion(){
+  emit("deleteQuestion", props.question)
+}
+
 </script>
 
 <style>

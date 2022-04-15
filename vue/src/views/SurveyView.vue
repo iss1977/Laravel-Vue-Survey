@@ -137,6 +137,7 @@
 <script setup>
   import PageComponent from './../components/PageComponent.vue';
   import QuestionEditor from '../components/editor/QuestionEditor.vue';
+  import {v4 as uuidv4} from 'uuid'
   import { ref } from 'vue';
   import { useRoute } from 'vue-router';
   import store from './../store';
@@ -159,6 +160,35 @@
       (s) => s.id === parseInt(route.params.id)
     );
   }
+
+
+// emited by child component QuestionEditor
+function addQuestion(index){
+  const newQuestion = {
+    id: uuidv4(),
+    type:"text",
+    question:"",
+    description: null,
+    data: {},
+  }
+
+  model.value.questions.splice(index, 0, newQuestion);
+}
+
+// emited by child component QuestionEditor
+function deleteQuestion(question){
+  model.value.questions = model.value.questions.filter( (q)=> q !== question );
+}
+
+// emited by child component QuestionEditor
+function questionChange(question){
+  model.value.questions = model.value.questions.map( (q)=>{
+    if(q.id === question.id){
+      return question
+    }
+    return q
+  })
+}
 
 </script>
 

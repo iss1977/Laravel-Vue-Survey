@@ -42,6 +42,7 @@ Stack used for development:
 - Creating survey cards with tailwind.css
 - Creating form for creeate/edit Surveys
 - Creating a "question editor" component. Add Question inputs, Question Type Select, Options for question
+- Implement add, delete and change event question handling emitted by child component
 
 
 
