@@ -43,6 +43,8 @@ Stack used for development:
 - Creating form for creeate/edit Surveys
 - Creating a "question editor" component. Add Question inputs, Question Type Select, Options for question
 - Implement add, delete and change event question handling emitted by child component
+- Laravel Survey CRUD: Controller, Request validation classes and Resources
+- Add laravel spatie/sluggable
 
 
 
