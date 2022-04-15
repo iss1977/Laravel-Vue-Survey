@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {createStore} from 'vuex';
 import axiosClient from '../axios';
 
@@ -206,6 +207,25 @@ const store = createStore({ //options
   getters: {},
   actions: {
 
+    /** Create or update a survey in backend */
+    saveSurvey( {commit}, survey ){
+      let response;
+      if (survey.id) { // if survey has id, we are updateing, else creating
+        response = axiosClient
+          .put(`/survey/${survey.id}`, survey)
+          .then( (res) => {
+            commit("updateSurvey", res.data);
+            return res
+          } )
+      } else {
+        response = axiosClient.post("/survey", survey)
+          .then((res) => {
+            commit("saveSurvey",res.data);
+            return res
+          })
+      }
+    },
+
     /** Registration for Register.vue component */
     register( { commit }, user ){
       return axiosClient.post('/register', user)
@@ -241,6 +261,18 @@ const store = createStore({ //options
     }
   },
   mutations: {
+    saveSurvey: (state,survey) => {
+      state.surveys = [...state.surveys, survey.data]
+    },
+    updateSurvey: (state, survey) => {
+      state.surveys = state.surveys,map((s) => {
+        if(survey.id === s.id){
+          return survey.data
+        }
+        return s;
+      })
+    },
+
     logout: state => {
       state.user.data = {};
       state.user.token = null;

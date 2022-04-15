@@ -45,6 +45,6 @@ Stack used for development:
 - Implement add, delete and change event question handling emitted by child component
 - Laravel Survey CRUD: Controller, Request validation classes and Resources
 - Add laravel spatie/sluggable
-
+- Add store and update methods to Survey View component and Vuex store.
 
 
