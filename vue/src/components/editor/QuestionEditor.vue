@@ -122,9 +122,6 @@ const emit = defineEmits(["change","addQuestion","deleteQuestion"]);
 // Make a deep copy of question object
 const model = ref(JSON.parse(JSON.stringify(props.question)));
 
-//Delete me
-const originalModel = JSON.parse(JSON.stringify(props.question));
-
 // Get question types from VUEX
 const questionTypes = computed(() => store.state.questionTypes);
 
@@ -173,10 +170,12 @@ function typeChange(){
 
 // Emits a data change event
 function dataChange(){
-  const data = model.value;
+  const data = JSON.parse(JSON.stringify(model.value));
   if(!shouldHaveOptions()){
     delete data.data.options;
   }
+
+  emit("change", data);
 }
 
 </script>
