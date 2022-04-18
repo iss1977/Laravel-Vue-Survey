@@ -47,6 +47,6 @@ Stack used for development:
 - Add laravel spatie/sluggable
 - Add store and update methods to Survey View component and Vuex store.
 - Adding an image to the survey and save it in backend
-
+- Adding Show Loading on Survey View
 
 
