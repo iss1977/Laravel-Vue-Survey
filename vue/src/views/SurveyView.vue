@@ -140,7 +140,7 @@
   import PageComponent from './../components/PageComponent.vue';
   import QuestionEditor from '../components/editor/QuestionEditor.vue';
   import {v4 as uuidv4} from 'uuid'
-  import { ref } from 'vue';
+  import { ref, watch } from 'vue';
   import { useRoute, useRouter } from 'vue-router';
   import store from './../store';
 
@@ -153,15 +153,24 @@
     title: '',
     status: false,
     description: null,
-    image: null,
+    image_url: null,
     expire_date: null,
     questions: [],
   });
 
+  // When the survey data changes in the store, we must update the model from this component
+  watch(
+    ()=>store.state.currentSurvey.data,
+    (newVal, oldVal) => {
+      model.value = {
+        ...JSON.parse(JSON.stringify(newVal)),
+        status: newVal.status !== "draft",
+      };
+    }
+  );
+
   if(route.params.id) {
-    model.value = store.state.surveys.find(
-      (s) => s.id === parseInt(route.params.id)
-    );
+    store.dispatch('getSurvey', route.params.id)
   }
 
 function onImageChoose(ev){
@@ -217,7 +226,7 @@ function saveSurvey(){
     .then( (data)=>{
       router.push({
         name: "SurveyView",
-        params: { id: data.data.id }
+        params: { id: data.data.data.id }
         });
     } )
 }
