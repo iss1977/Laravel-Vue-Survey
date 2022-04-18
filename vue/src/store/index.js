@@ -204,7 +204,10 @@ const store = createStore({ //options
       loading: false,
       data: {}
     },
-    surveys: [...tmpSurveys],
+    surveys: {
+      loading: false,
+      data: []
+    },
     questionTypes: ["text", "select", "radio", "checkbox", "textarea"],
   },
 
@@ -245,13 +248,24 @@ const store = createStore({ //options
             commit("setCurrentSurvey",res.data);
             return res
           })
-
+          return response
       }
     },
 
     /** Delete a survey */
     deleteSurvey( {}, surveyId ){
       return axiosClient.delete(`/survey/${surveyId}`);
+    },
+
+    /** Get all surveys */
+    getSurveys( {commit} ){
+      commit('setSurveysLoading', true)
+      return axiosClient.get('/survey')
+        .then( (res)=>{
+          commit('setSurveysLoading', false)
+          commit('setSurveys', res.data)
+          return res
+        })
     },
     /** Registration for Register.vue component */
     register( { commit }, user ){
@@ -291,9 +305,16 @@ const store = createStore({ //options
     setCurrentSurveyLoading: (state, loading)=>{
       state.currentSurvey.loading = loading
     },
+    setSurveysLoading: (state, loading)=>{
+      state.surveys.loading = loading
+    },
 
     setCurrentSurvey: (state, survey)=>{
       state.currentSurvey.data = survey.data;
+    },
+
+    setSurveys: (state, surveysData)=>{
+      state.surveys.data = surveysData.data
     },
 
     logout: state => {

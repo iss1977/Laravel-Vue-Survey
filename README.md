@@ -49,4 +49,4 @@ Stack used for development:
 - Adding an image to the survey and save it in backend
 - Adding Show Loading on Survey View
 - Delete survey: frontend and backend
-
+- Loading surveys from backend
