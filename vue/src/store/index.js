@@ -249,6 +249,10 @@ const store = createStore({ //options
       }
     },
 
+    /** Delete a survey */
+    deleteSurvey( {}, surveyId ){
+      return axiosClient.delete(`/survey/${surveyId}`);
+    },
     /** Registration for Register.vue component */
     register( { commit }, user ){
       return axiosClient.post('/register', user)
