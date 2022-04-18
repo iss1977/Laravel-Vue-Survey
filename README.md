@@ -46,5 +46,7 @@ Stack used for development:
 - Laravel Survey CRUD: Controller, Request validation classes and Resources
 - Add laravel spatie/sluggable
 - Add store and update methods to Survey View component and Vuex store.
+- Adding an image to the survey and save it in backend
+
 
 

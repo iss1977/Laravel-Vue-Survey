@@ -22,10 +22,10 @@
             </label>
             <div class="mt-1 flex items-center">
               <img
-                v-if="model.image"
-                :src="model.image"
+                v-if="model.image_url"
+                :src="model.image_url"
                 :alt="model.title"
-                class="w-64 h-48 object-cover"
+                class="w-64 h-48 object-contain"
               >
               <span
                 v-else
@@ -37,7 +37,9 @@
                 </svg>
               </span>
                 <button type="button" class="relative ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer">
-                  <input type="file" class="absolute left-0 right-0 top-0 bottom-0 opacity-0 cursor-pointer">
+                  <input type="file" class="absolute left-0 right-0 top-0 bottom-0 opacity-0 cursor-pointer"
+                    @change="onImageChoose"
+                  >
                   Change
                 </button>
             </div>
@@ -162,6 +164,21 @@
     );
   }
 
+function onImageChoose(ev){
+  const file = ev.target.files[0]
+
+  const reader = new FileReader();
+
+  reader.onload = () => {
+    console.log('ready')
+    // The field to be sent to the bakend
+    model.value.image = reader.result // image will be a base64 string
+
+    // The filed that will be displayed as preview
+    model.value.image_url = reader.result
+  }
+  reader.readAsDataURL(file);
+}
 
 // emited by child component QuestionEditor
 function addQuestion(index){

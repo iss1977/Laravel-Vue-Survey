@@ -262,6 +262,7 @@ const store = createStore({ //options
   },
   mutations: {
     saveSurvey: (state,survey) => {
+      delete survey.image_url // don't send this to the backend - useless
       state.surveys = [...state.surveys, survey.data]
     },
     updateSurvey: (state, survey) => {
